@@ -1,0 +1,10 @@
+.footer {
+    background-color: rgb(204, 203, 203);
+}
+
+.footer__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: right;
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+} 

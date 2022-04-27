@@ -1,0 +1,51 @@
+.hero__container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hero__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 20px;
+}
+
+.hero__item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.hero__content {
+    position: relative;
+}
+
+.hero__img {
+    width: 25%;
+    margin-right: 50px;
+}
+
+.hero__heading {
+    margin-top: 0;
+}
+
+.hero__category {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.hero__pagination {
+    text-align: center;
+}
+
+.hero__page {
+    display: inline-block;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    border: 1px solid black;
+}
+
+.hero__page:not(:last-child) {
+    margin-right: 5px;
+}
