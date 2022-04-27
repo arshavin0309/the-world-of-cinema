@@ -17,7 +17,6 @@ function renderList(category) {
             heroList.append(item)
             saveList(category)
             createCountPages(heroItem)
-            // splitOnPages(heroItem)
         }
     } else {
         heroList.innerHTML= ''
@@ -34,10 +33,9 @@ function filterArr(category) {
         }
     }
     console.log(heroItemsAfterFilter)
-    saveList(category)
     nav.innerHTML = ''
     createCountPages(heroItemsAfterFilter)
-    return
+    saveList(category)
 }
 
 for (const item of btn) {
@@ -63,7 +61,6 @@ function saveList(category) {
     localStorage.setItem('category', category)
 }
 
-// определяем кол-во страниц
 function createCountPages(array) {
     let lengthOfPagination = Math.ceil(array.length / itemsOnPage)
     nav.innerHTML = ''
@@ -75,25 +72,10 @@ function createCountPages(array) {
         nav.append(btn)
     }
 }
-createCountPages(heroItem)
 
-// получает все что есть с данным классом, это неправильно, при фильтре работать будет некорректно
 let pages = document.querySelectorAll('.hero__page')
 
-// разделяем на страницы
 function splitOnPages(array, numberOfPage = 1) {
-    let page = numberOfPage
-    
-    let start = (page - 1) * itemsOnPage
-    let end = start + itemsOnPage
-    let newArr = Object.values(array)
-    let notes = newArr.slice(start, end)
-
-    heroList.innerHTML = ''
-    for (const note of notes) {
-        heroList.append(note)
-    }
-
     for (const item of pages) {
         item.addEventListener('click', () => {
 
