@@ -4,6 +4,7 @@ let heroList = document.querySelector('.hero__list')
 let heroItem = document.querySelectorAll('.hero__item')
 let itemsOnPage = 10
 let nav = document.querySelector('.hero__pagination')
+let infoContainer = document.querySelector('.info__container')
 
 const categoryInStorage = localStorage.getItem('category')
 
@@ -12,30 +13,34 @@ if (localStorage.getItem('category')) {
 }
 
 function renderList(category) {
-    if (category == 'отменить фильтр') {
-        for (const item of heroItem) {
-            heroList.append(item)
-            saveList(category)
-            createCountPages(heroItem)
+    if (!infoContainer) {
+        if (category == 'отменить фильтр') {
+            for (const item of heroItem) {
+                heroList.append(item)
+                saveList(category)
+                createCountPages(heroItem)
+            }
+        } else {
+            heroList.innerHTML= ''
+            filterArr(category)
         }
-    } else {
-        heroList.innerHTML= ''
-        filterArr(category)
     }
 }
 
 function filterArr(category) {
-    let heroItemsAfterFilter = []
-    for (const item of heroItem) {
-        if (item.innerText.indexOf(category) != -1) {
-            heroList.append(item)
-            heroItemsAfterFilter.push(item)
+    if (!infoContainer) {
+        let heroItemsAfterFilter = []
+        for (const item of heroItem) {
+            if (item.innerText.indexOf(category) != -1) {
+                heroList.append(item)
+                heroItemsAfterFilter.push(item)
+            }
         }
+        console.log(heroItemsAfterFilter)
+        nav.innerHTML = ''
+        createCountPages(heroItemsAfterFilter)
+        saveList(category)
     }
-    console.log(heroItemsAfterFilter)
-    nav.innerHTML = ''
-    createCountPages(heroItemsAfterFilter)
-    saveList(category)
 }
 
 for (const item of btn) {
@@ -95,8 +100,6 @@ function splitOnPages(array, numberOfPage = 1) {
 }
 
 splitOnPages(heroItem)
-
-let infoContainer = document.querySelector('.info__container')
 
 for (const item of heroItem) {
     item.addEventListener('click', () => {
