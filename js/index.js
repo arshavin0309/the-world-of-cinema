@@ -17,8 +17,8 @@ function renderList(category) {
         if (category == 'отменить фильтр') {
             for (const item of heroItem) {
                 heroList.append(item)
-                saveList(category)
                 createCountPages(heroItem)
+                saveList(category)
             }
         } else {
             heroList.innerHTML= ''
@@ -80,10 +80,24 @@ function createCountPages(array) {
 
 let pages = document.querySelectorAll('.hero__page')
 
-function splitOnPages(array, numberOfPage = 1) {
+function splitOnPages(array) {
     for (const item of pages) {
-        item.addEventListener('click', () => {
 
+        document.addEventListener('DOMContentLoaded', () => {
+            let page = 1
+    
+            let start = (page - 1) * itemsOnPage
+            let end = start + itemsOnPage
+            let newArr = Object.values(array)
+            let notes = newArr.slice(start, end)
+    
+            heroList.innerHTML = ''
+            for (const note of notes) {
+                heroList.append(note)
+            }
+        })
+
+        item.addEventListener('click', () => {
             let page = item.textContent
     
             let start = (page - 1) * itemsOnPage
