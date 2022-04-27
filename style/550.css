@@ -1,4 +1,9 @@
 @media (max-width: 550px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
     .header__container {
         flex-direction: column;
     }

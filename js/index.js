@@ -83,19 +83,19 @@ let pages = document.querySelectorAll('.hero__page')
 function splitOnPages(array) {
     for (const item of pages) {
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let page = 1
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     let page = 1
     
-            let start = (page - 1) * itemsOnPage
-            let end = start + itemsOnPage
-            let newArr = Object.values(array)
-            let notes = newArr.slice(start, end)
+        //     let start = (page - 1) * itemsOnPage
+        //     let end = start + itemsOnPage
+        //     let newArr = Object.values(array)
+        //     let notes = newArr.slice(start, end)
     
-            heroList.innerHTML = ''
-            for (const note of notes) {
-                heroList.append(note)
-            }
-        })
+        //     heroList.innerHTML = ''
+        //     for (const note of notes) {
+        //         heroList.append(note)
+        //     }
+        // })
 
         item.addEventListener('click', () => {
             let page = item.textContent
