@@ -1,12 +1,24 @@
+.header {
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
 .header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 }
 
 .header__img {
     max-width: 100px;
+}
+
+.header__back {
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+
+.header__back:hover {
+    font-size: 17px;
 }

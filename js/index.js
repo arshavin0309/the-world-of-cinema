@@ -95,3 +95,42 @@ function splitOnPages(array, numberOfPage = 1) {
 }
 
 splitOnPages(heroItem)
+
+let infoContainer = document.querySelector('.info__container')
+
+for (const item of heroItem) {
+    item.addEventListener('click', () => {
+        let title = item.querySelector('.hero__heading').textContent
+        let info = item.querySelector('.hero__info').textContent
+        let location = item.querySelector('.hero__location').textContent
+        let date = item.querySelector('.hero__date').textContent
+        let categ = item.querySelector('.hero__category').textContent
+
+        console.log(title)
+
+        localStorage.setItem('title', title)
+        localStorage.setItem('info', info)
+        localStorage.setItem('location', location)
+        localStorage.setItem('date', date)
+        localStorage.setItem('categ', categ)
+    })
+}
+
+if (infoContainer) {
+    let title = document.createElement('div')
+    title.textContent = localStorage.getItem('title')
+    let info = document.createElement('div')
+    info.textContent = localStorage.getItem('info')
+    let location = document.createElement('div')
+    location.textContent = localStorage.getItem('location')
+    let date = document.createElement('div')
+    date.textContent = localStorage.getItem('date')
+    let categ = document.createElement('div')
+    categ.textContent = localStorage.getItem('categ')
+
+    infoContainer.append(title)
+    infoContainer.append(info)
+    infoContainer.append(location)
+    infoContainer.append(date)
+    infoContainer.append(categ)
+}

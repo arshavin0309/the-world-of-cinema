@@ -15,6 +15,15 @@
     margin-bottom: 20px;
 }
 
+.hero__item:hover {
+    transform: scale(101%);
+    cursor: pointer;
+}
+
+.hero__item:active {
+    transform: scale(100%);
+}
+
 .hero__content {
     position: relative;
 }
