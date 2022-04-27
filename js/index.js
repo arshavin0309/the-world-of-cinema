@@ -120,9 +120,9 @@ for (const item of heroItem) {
 }
 
 if (infoContainer) {
-    let title = document.createElement('div')
+    let title = document.createElement('h1')
     title.textContent = localStorage.getItem('title')
-    let info = document.createElement('div')
+    let info = document.createElement('p')
     info.textContent = localStorage.getItem('info')
     let location = document.createElement('div')
     location.textContent = localStorage.getItem('location')
